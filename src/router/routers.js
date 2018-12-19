@@ -17,8 +17,7 @@ import parentView from '@/components/parent-view'
  * }
  */
 
-export default [
-  {
+export default [{
     path: '/login',
     name: 'login',
     meta: {
@@ -36,19 +35,17 @@ export default [
       hideInMenu: true,
       notCache: true
     },
-    children: [
-      {
-        path: '/home',
-        name: 'home',
-        meta: {
-          hideInMenu: true,
-          title: '首页',
-          notCache: true,
-          icon: 'md-home'
-        },
-        component: () => import('@/view/single-page/home')
-      }
-    ]
+    children: [{
+      path: '/home',
+      name: 'home',
+      meta: {
+        hideInMenu: true,
+        title: '首页',
+        notCache: true,
+        icon: 'md-home'
+      },
+      component: () => import('@/view/single-page/home')
+    }]
   },
   {
     path: '',
@@ -66,17 +63,15 @@ export default [
     meta: {
       hideInBread: true
     },
-    children: [
-      {
-        path: 'join_page',
-        name: 'join_page',
-        meta: {
-          icon: '_qq',
-          title: 'QQ群'
-        },
-        component: () => import('@/view/join-page.vue')
-      }
-    ]
+    children: [{
+      path: 'join_page',
+      name: 'join_page',
+      meta: {
+        icon: '_qq',
+        title: 'QQ群'
+      },
+      component: () => import('@/view/join-page.vue')
+    }]
   },
   {
     path: '/message',
@@ -86,17 +81,15 @@ export default [
       hideInBread: true,
       hideInMenu: true
     },
-    children: [
-      {
-        path: 'message_page',
-        name: 'message_page',
-        meta: {
-          icon: 'md-notifications',
-          title: '消息中心'
-        },
-        component: () => import('@/view/single-page/message/index.vue')
-      }
-    ]
+    children: [{
+      path: 'message_page',
+      name: 'message_page',
+      meta: {
+        icon: 'md-notifications',
+        title: '消息中心'
+      },
+      component: () => import('@/view/single-page/message/index.vue')
+    }]
   },
   {
     path: '/components',
@@ -106,8 +99,7 @@ export default [
       title: '组件'
     },
     component: Main,
-    children: [
-      {
+    children: [{
         path: 'count_to_page',
         name: 'count_to_page',
         meta: {
@@ -198,8 +190,7 @@ export default [
       title: '数据上传'
     },
     component: Main,
-    children: [
-      {
+    children: [{
         path: 'update_table_page',
         name: 'update_table_page',
         meta: {
@@ -227,8 +218,7 @@ export default [
       title: 'EXCEL导入导出'
     },
     component: Main,
-    children: [
-      {
+    children: [{
         path: 'upload-excel',
         name: 'upload-excel',
         meta: {
@@ -255,18 +245,16 @@ export default [
       hideInBread: true
     },
     component: Main,
-    children: [
-      {
-        path: 'tools_methods_page',
-        name: 'tools_methods_page',
-        meta: {
-          icon: 'ios-hammer',
-          title: '工具方法',
-          beforeCloseName: 'before_close_normal'
-        },
-        component: () => import('@/view/tools-methods/tools-methods.vue')
-      }
-    ]
+    children: [{
+      path: 'tools_methods_page',
+      name: 'tools_methods_page',
+      meta: {
+        icon: 'ios-hammer',
+        title: '工具方法',
+        beforeCloseName: 'before_close_normal'
+      },
+      component: () => import('@/view/tools-methods/tools-methods.vue')
+    }]
   },
   {
     path: '/i18n',
@@ -275,17 +263,15 @@ export default [
       hideInBread: true
     },
     component: Main,
-    children: [
-      {
-        path: 'i18n_page',
-        name: 'i18n_page',
-        meta: {
-          icon: 'md-planet',
-          title: 'i18n - {{ i18n_page }}'
-        },
-        component: () => import('@/view/i18n/i18n-page.vue')
-      }
-    ]
+    children: [{
+      path: 'i18n_page',
+      name: 'i18n_page',
+      meta: {
+        icon: 'md-planet',
+        title: 'i18n - {{ i18n_page }}'
+      },
+      component: () => import('@/view/i18n/i18n-page.vue')
+    }]
   },
   {
     path: '/error_store',
@@ -294,17 +280,15 @@ export default [
       hideInBread: true
     },
     component: Main,
-    children: [
-      {
-        path: 'error_store_page',
-        name: 'error_store_page',
-        meta: {
-          icon: 'ios-bug',
-          title: '错误收集'
-        },
-        component: () => import('@/view/error-store/error-store.vue')
-      }
-    ]
+    children: [{
+      path: 'error_store_page',
+      name: 'error_store_page',
+      meta: {
+        icon: 'ios-bug',
+        title: '错误收集'
+      },
+      component: () => import('@/view/error-store/error-store.vue')
+    }]
   },
   {
     path: '/error_logger',
@@ -314,17 +298,15 @@ export default [
       hideInMenu: true
     },
     component: Main,
-    children: [
-      {
-        path: 'error_logger_page',
-        name: 'error_logger_page',
-        meta: {
-          icon: 'ios-bug',
-          title: '错误收集'
-        },
-        component: () => import('@/view/single-page/error-logger.vue')
-      }
-    ]
+    children: [{
+      path: 'error_logger_page',
+      name: 'error_logger_page',
+      meta: {
+        icon: 'ios-bug',
+        title: '错误收集'
+      },
+      component: () => import('@/view/single-page/error-logger.vue')
+    }]
   },
   {
     path: '/directive',
@@ -333,17 +315,15 @@ export default [
       hideInBread: true
     },
     component: Main,
-    children: [
-      {
-        path: 'directive_page',
-        name: 'directive_page',
-        meta: {
-          icon: 'ios-navigate',
-          title: '指令'
-        },
-        component: () => import('@/view/directive/directive.vue')
-      }
-    ]
+    children: [{
+      path: 'directive_page',
+      name: 'directive_page',
+      meta: {
+        icon: 'ios-navigate',
+        title: '指令'
+      },
+      component: () => import('@/view/directive/directive.vue')
+    }]
   },
   {
     path: '/multilevel',
@@ -353,8 +333,7 @@ export default [
       title: '多级菜单'
     },
     component: Main,
-    children: [
-      {
+    children: [{
         path: 'level_2_1',
         name: 'level_2_1',
         meta: {
@@ -373,8 +352,7 @@ export default [
           title: '二级-2'
         },
         component: parentView,
-        children: [
-          {
+        children: [{
             path: 'level_2_2_1',
             name: 'level_2_2_1',
             meta: {
@@ -406,35 +384,151 @@ export default [
     ]
   },
   {
-    path: '/argu',
-    name: 'argu',
+    path: '/user_manager',
+    name: 'user_manager',
     meta: {
-      hideInMenu: true
+      hideInBread: true
     },
     component: Main,
-    children: [
-      {
-        path: 'params/:id',
-        name: 'params',
+    children: [{
+      path: 'user_manager_page',
+      name: 'user_manager_page',
+      meta: {
+        icon: 'md-person',
+        title: '用户管理'
+      },
+      component: () => import('@/view/user-manager/user-manager.vue')
+    }]
+  },
+  {
+    path: '/product_manager',
+    name: 'product_manager',
+    meta: {
+      hideInBread: true
+    },
+    component: Main,
+    children: [{
+      path: 'product_manager_page',
+      name: 'product_manager_page',
+      meta: {
+        icon: 'md-person',
+        title: '产品管理'
+      },
+      component: () => import('@/view/product-manager/product-manager.vue')
+    }]
+  },
+  {
+    path: '/loan_manager',
+    name: 'loan_manager',
+    meta: {
+      hideInBread: true
+    },
+    component: Main,
+    children: [{
+      path: 'loan_manager_page',
+      name: 'loan_manager_page',
+      meta: {
+        icon: 'md-person',
+        title: '贷款管理'
+      },
+      component: () => import('@/view/loan-manager/loan-manager.vue')
+    }]
+  },
+  {
+    path: '/provide_manager',
+    name: 'provide_manager',
+    meta: {
+      hideInBread: true
+    },
+    component: Main,
+    children: [{
+      path: 'provide_manager_page',
+      name: 'provide_manager_page',
+      meta: {
+        icon: 'md-person',
+        title: '放款管理'
+      },
+      component: () => import('@/view/provide-manager/provide-manager.vue')
+    }]
+  },
+  {
+    path: '/repay_manager',
+    name: 'repay_manager',
+    meta: {
+      hideInBread: true
+    },
+    component: Main,
+    children: [{
+      path: 'repay_manager_page',
+      name: 'repay_manager_page',
+      meta: {
+        icon: 'md-person',
+        title: '还款管理'
+      },
+      component: () => import('@/view/repay-manager/repay-manager.vue')
+    }]
+  },
+  {
+    path: '/reminder_record',
+    name: 'reminder_record',
+    meta: {
+      hideInBread: true
+    },
+    component: Main,
+    children: [{
+      path: 'reminder_record_page',
+      name: 'reminder_record_page',
+      meta: {
+        icon: 'md-person',
+        title: '催收记录'
+      },
+      component: () => import('@/view/reminder-record/reminder-record.vue')
+    }]
+  },
+  {
+    path: '/report_manager',
+    name: 'report_manager',
+    meta: {
+      icon: 'logo-buffer',
+      title: '报表管理'
+    },
+    component: Main,
+    children: [{
+        path: 'provide_report_page',
+        name: 'provide_report_page',
         meta: {
-          icon: 'md-flower',
-          title: route => `{{ params }}-${route.params.id}`,
-          notCache: true,
-          beforeCloseName: 'before_close_normal'
+          icon: 'md-trending-up',
+          title: '放款报表'
         },
-        component: () => import('@/view/argu-page/params.vue')
+        component: () => import('@/view/report-manager/provide-report.vue')
       },
       {
-        path: 'query',
-        name: 'query',
+        path: 'repay_report_page',
+        name: 'repay_report_page',
         meta: {
-          icon: 'md-flower',
-          title: route => `{{ query }}-${route.query.id}`,
-          notCache: true
+          icon: 'ios-infinite',
+          title: '还款报表'
         },
-        component: () => import('@/view/argu-page/query.vue')
+        component: () => import('@/view/report-manager/repay-report.vue')
       }
     ]
+  },
+  {
+    path: '/feedback',
+    name: 'feedback',
+    meta: {
+      hideInBread: true
+    },
+    component: Main,
+    children: [{
+      path: 'feedback_page',
+      name: 'feedback_page',
+      meta: {
+        icon: 'md-person',
+        title: '催收记录'
+      },
+      component: () => import('@/view/feedback/feedback.vue')
+    }]
   },
   {
     path: '/401',

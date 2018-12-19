@@ -38,5 +38,16 @@ export default {
   params: '动态路由',
   cropper_page: '图片裁剪',
   message_page: '消息中心',
-  tree_table_page: '树状表格'
+  tree_table_page: '树状表格',
+
+  user_manager_page: '用户管理',
+  product_manager_page: '产品管理',
+  loan_manager_page: '贷款管理',
+  provide_manager_page: '放款管理',
+  repay_manager_page: '还款管理',
+  reminder_record_page: '催收记录',
+  report_manager: '报表管理',
+  provide_report_page: '放款报表',
+  repay_report_page: '还款报表',
+  feedback_page: '意见反馈'
 }

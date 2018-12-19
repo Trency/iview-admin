@@ -38,5 +38,17 @@ export default {
   params: 'Params',
   cropper_page: 'Cropper',
   message_page: 'Message Center',
-  tree_table_page: 'Tree Table'
+  tree_table_page: 'Tree Table',
+
+  user_manager_page: 'User Manager',
+  product_manager_page: 'Product Manager',
+  loan_manager_page: 'Loan Manager',
+  provide_manager_page: 'Provide Manager',
+  repay_manager_page: 'Repay Manager',
+  reminder_record_page: 'Reminder Record',
+  report_manager: 'Report Manager',
+  provide_report_page: 'Provider Report',
+  repay_report_page: 'Repay Report',
+  feedback_page: 'FeedBack'
+
 }
