@@ -1,47 +1,57 @@
 <template>
   <div>
-    <Card>
-      <Form ref="formValidate" :model="formValidate" :label-width="60" label-position="left" inline>
+    <!-- <Card> -->
+      <!-- <Card> -->
+
+      <Form ref="formValidate" :model="formValidate" :label-width="60" inline>
         <FormItem label="姓名" prop="name">
-          <Input v-model="formValidate.name" placeholder="Enter your name"></Input>
+          <Input v-model="formValidate.name" placeholder="请输入用户姓名" style="width: 130px"></Input>
         </FormItem>
         <FormItem label="手机号" prop="mail">
-          <Input v-model="formValidate.mail" placeholder="Enter your e-mail"></Input>
+          <Input v-model="formValidate.mail" placeholder style="width: 130px"></Input>
         </FormItem>
         <FormItem label="用户状态" prop="city">
-          <Select v-model="formValidate.city" placeholder="Select your city">
+          <Select v-model="formValidate.city" placeholder style="width: 130px">
             <Option value="beijing">New York</Option>
             <Option value="shanghai">London</Option>
             <Option value="shenzhen">Sydney</Option>
           </Select>
         </FormItem>
         <FormItem label="审核状态" prop="interest">
-          <Select v-model="formValidate.city" placeholder="Select your city">
+          <Select v-model="formValidate.city" placeholder style="width: 130px">
             <Option value="beijing">New York</Option>
             <Option value="shanghai">London</Option>
             <Option value="shenzhen">Sydney</Option>
           </Select>
         </FormItem>
         <FormItem>
-            <Button type="primary">Submit</Button>
-            <Button style="margin-left: 8px">Cancel</Button>
+          <Button type="primary" @click="search">搜索</Button>
+          <Button style="margin-left: 8px">重置</Button>
         </FormItem>
       </Form>
-      <Table border :columns="columns12" :data="data6">
-        <template slot-scope="{ row }" slot="name">
-          <strong>{{ row.name }}</strong>
-        </template>
+    <!-- </Card> -->
+
+      <Table border :columns="columns12" :data="tableData">
         <template slot-scope="{ row, index }" slot="action">
-          <Button type="primary" size="small" style="margin-right: 5px">View</Button>
-          <Button type="error" size="small">Delete</Button>
+          <Button type="primary" size="small" style="margin-right: 5px" @click="show(index)">查看</Button>
+          <Button type="error" size="small" @click="changeStatus(index)">禁用</Button>
         </template>
       </Table>
-      <div style="margin: 10px;overflow: hidden">
-        <div style="float: right;">
-          <Page :total="100" :current="1"></Page>
+      <div style="margin: 10px 10px 0 10px;overflow: hidden">
+        <div style="float: right; margin: 10px 0">
+          <Page
+            :total="100"
+            :current="1"
+            size="small"
+            show-elevator
+            show-sizer
+            show-total
+            :page-size="25"
+            on-page-size-change="changeZZZ"
+          ></Page>
         </div>
       </div>
-    </Card>
+    <!-- </Card> -->
   </div>
 </template>
 
@@ -68,73 +78,41 @@ export default {
 
       columns12: [
         {
-          title: "Name",
-          slot: "name"
+          type: "index",
+          width: 60,
+          align: "center"
         },
         {
-          title: "Age",
+          title: "姓名",
+          key: "name"
+        },
+        {
+          title: "手机号",
           key: "age"
         },
         {
-          title: "Address",
+          title: "身份证号",
           key: "address"
         },
         {
-          title: "Action",
+          title: "用户状态",
+          key: "address"
+        },
+        {
+          title: "信息状态",
+          key: "address"
+        },
+        {
+          title: "注册时间",
+          key: "address"
+        },
+        {
+          title: "操作",
           slot: "action",
-          width: 150,
           align: "center"
         }
       ],
-      data6: [
-        {
-          name: "John Brown",
-          age: 18,
-          address: "New York No. 1 Lake Park"
-        },
-        {
-          name: "Jim Green",
-          age: 24,
-          address: "London No. 1 Lake Park"
-        },
-        {
-          name: "Joe Black",
-          age: 30,
-          address: "Sydney No. 1 Lake Park"
-        },
-        {
-          name: "Jon Snow",
-          age: 26,
-          address: "Ottawa No. 2 Lake Park"
-        }
-      ],
-      tableData: [],
-      infoStatusList: [
-        {
-          value: "pre_check",
-          label: "审核中"
-        },
-        {
-          value: "checkedzzz",
-          label: "已审核"
-        }
-      ],
-      infoStatus: "",
-      userStatusList: [
-        {
-          value: "checked1",
-          label: "1"
-        },
-        {
-          value: "checked2",
-          label: "2"
-        },
-        {
-          value: "checked3",
-          label: "3"
-        }
-      ],
-      userStatus: ""
+      tableData: []
     };
   },
   methods: {
@@ -146,17 +124,28 @@ export default {
         filename: `table-${new Date().valueOf()}.csv`
       });
     },
-    searchUser() {
-      console.log(this.userStatus);
-      console.log(this.infoStatus);
-      getTableData().then(res => {
-        this.tableData = res.data;
-        console.log("123");
-      });
+    search() {
+      console.log(this.tableData.length)
     },
     clearSearchText() {
       this.userStatus = "";
       this.infoStatus = "";
+    },
+    show(index) {
+      this.$router.push({ name: "user_check_page" });
+    },
+    changeStatus(index) {
+      this.$Modal.confirm({
+        title: "确认要禁用该用户吗",
+        content: "禁用用户后，将无法进行登录或借还款操作",
+        onOk: () => {
+          this.$Message.info("禁用成功");
+        }
+      });
+    },
+    changeZZZ(param) {
+      console.log('123')
+      console.log(param)
     }
   },
   mounted() {

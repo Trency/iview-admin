@@ -1,124 +1,221 @@
-<template>
-  <div>
-    <Card>
-    <div style="margin: 10px 0">
-        真实姓名：
-        <Input placeholder="" style="width: auto; margin: 0 10px" />
-        手机号：
-        <Input placeholder="" style="width: auto; margin: 0 10px" />
-        用户状态：
-        <Select v-model="userStatus" style="width:200px">
-            <Option v-for="item in userStatusList" :value="item.value" :key="item.value">{{ item.label }}</Option>
-        </Select>
-        信息状态：
-        <Select v-model="infoStatus" style="width:200px">
-            <Option v-for="item in infoStatusList" :value="item.value" :key="item.value">{{ item.label }}</Option>
-        </Select>
-        <Button type="primary" @click="searchUser" stype="margin: 0 10px">查询</Button>
-         <Button @click="clearSearchText" style="margin: 0 10px">重置</Button>
+<template>    <Form :model="formItem" :label-width="120">
+      <Card title="个人信息资料">
+        <Row>
+          <Col span="6">
+            <FormItem label="姓名">
+              <p>xxx</p>
+            </FormItem>
+          </Col>
+          <Col span="6">
+            <FormItem label="手机号">
+              <p>aaa</p>
+            </FormItem>
+          </Col>
+
+          <Col span="6">
+            <FormItem label="身份证号">
+              <p>aaa</p>
+            </FormItem>
+          </Col>
+
+          <Col span="6">
+            <FormItem label="注册来源">
+              <p>aaa</p>
+            </FormItem>
+          </Col>
+        </Row>
+        <Row>
+          <Col span="6">
+            <FormItem label="学校">
+              <p>aaa</p>
+            </FormItem>
+          </Col>
+          <Col span="6">
+            <FormItem label="学号">
+              <p>aaa</p>
+            </FormItem>
+          </Col>
+
+          <Col span="6">
+            <FormItem label="公司">
+              <p>aaa</p>
+            </FormItem>
+          </Col>
+          <Col span="6">
+            <FormItem label="最后登录时间">
+              <p>aaa</p>
+            </FormItem>
+          </Col>
+        </Row>
+        <Row>
+          <Col span="6">
+            <FormItem label="状态">
+              <p>aaa</p>
+            </FormItem>
+          </Col>
+          <Col span="6">
+            <FormItem label="最后登录IP">
+              <p>aaa</p>
+            </FormItem>
+          </Col>
+          <Col span="12">
+            <FormItem label="现居地址">
+              <p>aaa</p>
+            </FormItem>
+          </Col>
+        </Row>
+      </Card>
+
+      <Card title="个人身份认证">
+        <Row>
+          <Col span="8">
+            <FormItem label="身份证正面照">
+              <img
+                src="http://jumax-store-latest.oss-cn-shanghai.aliyuncs.com/uploading/2018-12-11/20181211203439547.jpg"
+                height="200px"
+              >
+            </FormItem>
+          </Col>
+
+          <Col span="8">
+            <FormItem label="身份证背面照">
+              <img
+                src="http://jumax-store-latest.oss-cn-shanghai.aliyuncs.com/uploading/2018-12-11/20181211203519058.JPG"
+                height="200px"
+              >
+            </FormItem>
+          </Col>
+        </Row>
+      </Card>
+
+      <Card title="扫脸认证">
+        <Row>
+          <Col span="8">
+            <FormItem label="扫脸认证信息">
+              <img
+                src="https://www.xiazaiba.com/uploadfiles/content/2014/0905/water_140990556072090231552.jpg"
+                height="200px"
+              >
+            </FormItem>
+          </Col>
+        </Row>
+      </Card>
+
+      <Card title="联系人证明信息">
+        <Row>
+          <Col span="12">
+            <Table border :columns="columns12" :data="data6"></Table>
+          </Col>
+        </Row>
+      </Card>
+
+      <Card title="绑定账号">
+        <Row>
+          <Col span="8">
+            <FormItem label="支付宝账号">
+              <p>mayun@ali.com</p>
+            </FormItem>
+          </Col>
+        </Row>
+      </Card>
+
+      <Card title="审核">
+        <Row>
+          <Col span="6">
+            <FormItem label="信息状态">
+              <RadioGroup>
+                <Radio label="暂不处理"></Radio>
+                <Radio label="通过"></Radio>
+                <Radio label="拒绝"></Radio>
+              </RadioGroup>
+            </FormItem>
+          </Col>
+
+          <Col span="6">
+            <FormItem label="身份证状态">
+              <RadioGroup>
+                <Radio label="暂不处理"></Radio>
+                <Radio label="通过"></Radio>
+                <Radio label="拒绝"></Radio>
+              </RadioGroup>
+            </FormItem>
+          </Col>
+
+          <Col span="6">
+            <FormItem label="扫脸状态">
+              <RadioGroup>
+                <Radio label="暂不处理"></Radio>
+                <Radio label="通过"></Radio>
+                <Radio label="拒绝"></Radio>
+              </RadioGroup>
+            </FormItem>
+          </Col>
+        </Row>
+        <Row>
+          <Col span="6">
+            <FormItem label="联系人状态">
+              <RadioGroup>
+                <Radio label="暂不处理"></Radio>
+                <Radio label="通过"></Radio>
+                <Radio label="拒绝"></Radio>
+              </RadioGroup>
+            </FormItem>
+          </Col>
+
+          <Col span="6">
+            <FormItem label="绑定账号状态">
+              <RadioGroup>
+                <Radio label="暂不处理"></Radio>
+                <Radio label="通过"></Radio>
+                <Radio label="拒绝"></Radio>
+              </RadioGroup>
+            </FormItem>
+          </Col>
+        </Row>
+      </Card>
+
+      <div style="float: right; margin: 10px 0">
+    <Button type="primary">保存</Button>
+    <Button style="margin-left: 6px">取消</Button>
     </div>
-      <tables ref="tables" v-model="tableData" :columns="columns" @on-delete="handleDelete"/>
-    </Card>
-  </div>
+    </Form>
+    
 </template>
-
 <script>
-import Tables from '_c/tables'
-import { getTableData, getFeaturedPage } from '@/api/data'
 export default {
-  name: 'user_manager',
-  components: {
-    Tables
-  },
-  data () {
+  data() {
     return {
-      columns: [
-        {title: 'Name', key: 'name', sortable: true},
-        {title: 'Email', key: 'email', editable: true},
-        {title: 'Create-Time', key: 'createTime'},
+      formItem: {
+        input: "李四",
+        select: "",
+        radio: "male",
+        checkbox: [],
+        switch: true,
+        date: "",
+        time: "",
+        slider: [20, 50],
+        textarea: ""
+      },
+      columns12: [
         {
-          title: 'Handle',
-          key: 'handle',
-          options: ['delete'],
-          button: [
-            (h, params, vm) => {
-              return h('Poptip', {
-                props: {
-                  confirm: true,
-                  title: '你确定要删除吗?'
-                },
-                on: {
-                  'on-ok': () => {
-                    vm.$emit('on-delete', params)
-                    vm.$emit('input', params.tableData.filter((item, index) => index !== params.row.initRowIndex))
-                  }
-                }
-              }, [
-                h('Button', '自定义删除')
-              ])
-            }
-          ]
+          type: "index",
+          width: 40,
+          align: "center"
+        },
+        {
+          title: "姓名",
+          key: "name"
+        },
+        {
+          title: "亲属关系",
+          key: "age"
+        },
+        {
+          title: "联系电话",
+          key: "address"
         }
-      ],
-      tableData: [],
-      infoStatusList: [
-          {
-              'value': 'pre_check',
-              'label': '审核中'
-          },
-          {
-              'value': 'checkedzzz',
-              'label': '已审核'
-          }
-      ],
-      infoStatus: '',
-      userStatusList: [
-          {
-              'value': 'checked1',
-              'label': '1'
-          }, 
-          {
-              'value': 'checked2',
-              'label': '2'
-          }, 
-          {
-              'value': 'checked3',
-              'label': '3'
-          }, 
-      ],
-      userStatus: ''
-    }
-  },
-  methods: {
-    handleDelete (params) {
-      console.log(params)
-    },
-    exportExcel () {
-      this.$refs.tables.exportCsv({
-        filename: `table-${(new Date()).valueOf()}.csv`
-      })
-    },
-    searchUser () {
-        console.log(this.userStatus)
-        console.log(this.infoStatus)
-        getTableData().then(res => {
-            this.tableData = res.data
-            console.log('123')
-        })
-    },
-    clearSearchText () {
-        this.userStatus = ''
-        this.infoStatus = ''
-    }
-  },
-  mounted () {
-    getTableData().then(res => {
-      this.tableData = res.data
-    })
+      ]
+    };
   }
-}
+};
 </script>
-
-<style>
-
-</style>

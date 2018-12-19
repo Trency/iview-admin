@@ -48,32 +48,6 @@ export default [{
     }]
   },
   {
-    path: '',
-    name: 'doc',
-    meta: {
-      title: '文档',
-      href: 'https://lison16.github.io/iview-admin-doc/#/',
-      icon: 'ios-book'
-    }
-  },
-  {
-    path: '/join',
-    name: 'join',
-    component: Main,
-    meta: {
-      hideInBread: true
-    },
-    children: [{
-      path: 'join_page',
-      name: 'join_page',
-      meta: {
-        icon: '_qq',
-        title: 'QQ群'
-      },
-      component: () => import('@/view/join-page.vue')
-    }]
-  },
-  {
     path: '/message',
     name: 'message',
     component: Main,
@@ -326,68 +300,11 @@ export default [{
     }]
   },
   {
-    path: '/multilevel',
-    name: 'multilevel',
-    meta: {
-      icon: 'md-menu',
-      title: '多级菜单'
-    },
-    component: Main,
-    children: [{
-        path: 'level_2_1',
-        name: 'level_2_1',
-        meta: {
-          icon: 'md-funnel',
-          title: '二级-1'
-        },
-        component: () => import('@/view/multilevel/level-2-1.vue')
-      },
-      {
-        path: 'level_2_2',
-        name: 'level_2_2',
-        meta: {
-          access: ['super_admin'],
-          icon: 'md-funnel',
-          showAlways: true,
-          title: '二级-2'
-        },
-        component: parentView,
-        children: [{
-            path: 'level_2_2_1',
-            name: 'level_2_2_1',
-            meta: {
-              icon: 'md-funnel',
-              title: '三级'
-            },
-            component: () => import('@/view/multilevel/level-2-2/level-2-2-1.vue')
-          },
-          {
-            path: 'level_2_2_2',
-            name: 'level_2_2_2',
-            meta: {
-              icon: 'md-funnel',
-              title: '三级'
-            },
-            component: () => import('@/view/multilevel/level-2-2/level-2-2-2.vue')
-          }
-        ]
-      },
-      {
-        path: 'level_2_3',
-        name: 'level_2_3',
-        meta: {
-          icon: 'md-funnel',
-          title: '二级-3'
-        },
-        component: () => import('@/view/multilevel/level-2-3.vue')
-      }
-    ]
-  },
-  {
     path: '/user_manager',
     name: 'user_manager',
     meta: {
-      hideInBread: true
+      icon: 'md-person',
+      title: '用户管理'
     },
     component: Main,
     children: [{
@@ -398,6 +315,23 @@ export default [{
         title: '用户管理'
       },
       component: () => import('@/view/user-manager/user-manager.vue')
+    }]
+  },
+  {
+    path: '/user_check',
+    name: 'user_check',
+    meta: {
+      hideInMenu: true
+    },
+    component: Main,
+    children: [{
+      path: 'user_check_page',
+      name: 'user_check_page',
+      meta: {
+        icon: 'md-person',
+        title: '用户管理'
+      },
+      component: () => import('@/view/user-manager/user-check.vue')
     }]
   },
   {
@@ -415,6 +349,20 @@ export default [{
         title: '产品管理'
       },
       component: () => import('@/view/product-manager/product-manager.vue')
+    },{
+      path: 'product_detail_page',
+      name: 'product_detail_page',
+      meta: {
+        hideInMenu: true
+      },
+      component: () => import('@/view/product-manager/product-detail.vue')
+    },{
+      path: 'product_add_page',
+      name: 'product_add_page',
+      meta: {
+        hideInMenu: true
+      },
+      component: () => import('@/view/product-manager/product-add.vue')
     }]
   },
   {

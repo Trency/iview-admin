@@ -5,77 +5,78 @@
         <Row>
           <Col span="6">
             <FormItem label="产品名称">
-              <p>xxx</p>
+              <Input v-model="formValidate.name" placeholder="请输入用户姓名" style="width: 130px"></Input>
             </FormItem>
           </Col>
           <Col span="6">
             <FormItem label="贷款金额">
-              <p>aaa</p>
+              <Input v-model="formValidate.name" placeholder="请输入用户姓名" style="width: 130px"></Input>
             </FormItem>
           </Col>
 
           <Col span="6">
             <FormItem label="贷款天数">
-              <p>aaa</p>
+              <Input v-model="formValidate.name" placeholder="请输入用户姓名" style="width: 130px"></Input>
             </FormItem>
           </Col>
 
           <Col span="6">
             <FormItem label="利率">
-              <p>aaa</p>
+             <Input v-model="formValidate.name" placeholder="请输入用户姓名" style="width: 130px"></Input>
             </FormItem>
           </Col>
         </Row>
         <Row>
           <Col span="6">
             <FormItem label="利息金额">
-              <p>aaa</p>
+              <Input v-model="formValidate.name" placeholder="请输入用户姓名" style="width: 130px"></Input>
             </FormItem>
           </Col>
           <Col span="6">
             <FormItem label="违约金类型">
-              <p>aaa</p>
+              <Input v-model="formValidate.name" placeholder="请输入用户姓名" style="width: 130px"></Input>
             </FormItem>
           </Col>
 
           <Col span="6">
             <FormItem label="违约金利率">
-              <p>aaa</p>
+             <Input v-model="formValidate.name" placeholder="请输入用户姓名" style="width: 130px"></Input>
             </FormItem>
           </Col>
           <Col span="6">
             <FormItem label="允许延长天数">
-              <p>aaa</p>
+              <Input v-model="formValidate.name" placeholder="请输入用户姓名" style="width: 130px"></Input>
             </FormItem>
           </Col>
         </Row>
         <Row>
           <Col span="6">
             <FormItem label="标题">
-              <p>aaa</p>
+              <Input v-model="formValidate.name" placeholder="请输入用户姓名" style="width: 130px"></Input>
             </FormItem>
           </Col>
           <Col span="6">
             <FormItem label="子标题">
-              <p>aaa</p>
+              <Input v-model="formValidate.name" placeholder="请输入用户姓名" style="width: 130px"></Input>
             </FormItem>
           </Col>
           <Col span="12">
             <FormItem label="产品描述">
-              <p>aaa</p>
+              <Input v-model="formValidate.name" placeholder="请输入用户姓名" style="width: 130px"></Input>
             </FormItem>
           </Col>
         </Row>
         <Row>
           <Col span="6">
             <FormItem label="封面图">
-              <p>aaa</p>
+              <Input v-model="formValidate.name" placeholder="请输入用户姓名" style="width: 130px"></Input>
             </FormItem>
           </Col>
         </Row>
       </Card>
 
       <FormItem>
+        <Button type="primary">保存</Button>
         <Button style="margin-left: 6px">取消</Button>
       </FormItem>
     </Form>
@@ -85,7 +86,7 @@
 import Tables from '_c/tables'
 import { getTableData, getFeaturedPage } from '@/api/data'
 export default {
-  name: "product_detail_page",
+  name: "product_add_page",
   components: {
     Tables
   },
@@ -101,9 +102,18 @@ export default {
         time: "",
         slider: [20, 50],
         textarea: ""
-      }
+      },
+       formValidate: {
+        name: "",
+        mail: "",
+        city: "",
+        gender: "",
+        interest: [],
+        date: "",
+        time: "",
+        desc: ""
+      },
     };
   }
 };
 </script>
-
